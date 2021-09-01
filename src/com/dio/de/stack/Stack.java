@@ -1,57 +1,48 @@
 package com.dio.de.stack;
 
-public class Stack {
-	
-	
-	private Node<String> topNodeReference;
-	
-	
+public class Stack<T> {
+
+	private Node<T> topNodeReference;
+
+	public Node<T> top() {
+		return topNodeReference;
+	}
+
 	public boolean isEmpty() {
-		
-		return this.topNodeReference == null ? true : false;
+
+		return top() == null ? true : false;
 	}
 
+	public void push(Node<T> node) {
 
-	public Node<String> top() {
-		return this.topNodeReference;
-	}
-	
-	public void push(Node<String> node) {
-		
-		if(isEmpty()) {
-			this.topNodeReference = node;
+		if (isEmpty()) {
+
+			topNodeReference = new Node<>();
+
+			topNodeReference.setNode(node);
+
+			System.out.println(top().getReferencedNode() + " successful insertion!");
 		}
-		
-		node.setNode(this.topNodeReference);
-		
-		this.topNodeReference=node;
-	}
-	
-	public void pop(Node<String> node){
-		
-		Node<String> topNode = top();
-		
-		if(isEmpty() || node!= topNode) {
-			
-			System.out.println("Remotion impossible! Nothing to do!");
-			
-		}
-		
+
 		else {
-			
-			this.topNodeReference = topNode.getReferencedNode();
-		
-			
-		}
-		
-		
-		
-		
-		
-	}
-	
-	
-	
-	
-}
+			node.setNode(top().getReferencedNode());
 
+			topNodeReference.setNode(node);
+
+			System.out.println(top().getReferencedNode() + " successful insertion!");
+		}
+
+	}
+
+	public void pop(Node<T> node) {
+
+		if (isEmpty() || node != top().getReferencedNode()) {
+			System.out.println("Impossible remotion! Nothing to do!");
+		} else {
+			top().setNode(node.getReferencedNode());
+			System.out.println( "successful remotion!");
+		}
+
+	}
+
+}

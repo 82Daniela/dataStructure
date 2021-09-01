@@ -4,7 +4,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		Stack s = new Stack();
+		Stack<String> s = new Stack();
 		
 		Node<String> node1 = new Node<>();
 		
@@ -19,17 +19,23 @@ public class Main {
 		
 		s.push(node2);
 		
-		Node<String> node3 = new Node<>();
+		Node<String> nodeTop = s.top().getReferencedNode();
 		
-		node3.setContent("Third book");
-		
-		s.push(node3);
+		System.out.println(nodeTop);
 		
 		s.pop(node2);
 		
-		s.pop(node3);
+		nodeTop = s.top().getReferencedNode();
+		System.out.println(nodeTop);
 		
-		System.out.print(s.top());
+		s.pop(node1);
+		
+		nodeTop = s.top().getReferencedNode();
+		System.out.println(nodeTop);
+		
+		s.pop(node1);
+		
+		
 		
 	}
 
