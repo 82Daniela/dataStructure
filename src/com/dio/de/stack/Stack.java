@@ -2,7 +2,7 @@ package com.dio.de.stack;
 
 public class Stack<T> {
 
-	private Node<T> topNodeReference;
+	private Node<T> topNodeReference = new Node<>();
 
 	public Node<T> top() {
 		return topNodeReference;
@@ -10,16 +10,14 @@ public class Stack<T> {
 
 	public boolean isEmpty() {
 
-		return top() == null ? true : false;
+		return top().getReferencedNode() == null ? true : false;
 	}
 
 	public void push(Node<T> node) {
 
 		if (isEmpty()) {
 
-			topNodeReference = new Node<>();
-
-			topNodeReference.setNode(node);
+			top().setNode(node);
 
 			System.out.println(top().getReferencedNode() + " successful insertion!");
 		}
@@ -34,9 +32,11 @@ public class Stack<T> {
 
 	}
 
-	public void pop(Node<T> node) {
+	public void pop() {
 
-		if (isEmpty() || node != top().getReferencedNode()) {
+		Node<T> node = top().getReferencedNode();
+		
+		if (isEmpty()) {
 			System.out.println("Impossible remotion! Nothing to do!");
 		} else {
 			top().setNode(node.getReferencedNode());
