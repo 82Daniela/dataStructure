@@ -4,7 +4,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		Linked_list<String> ll = new Linked_list<>();
+		LinkedList<String> ll = new LinkedList<>();
 
 		Node<String> node = new Node<>();
 

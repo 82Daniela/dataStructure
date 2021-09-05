@@ -1,6 +1,6 @@
 package com.dio.de.linked_list;
 
-public class Linked_list<T> {
+public class LinkedList<T> {
 
 	private Node<T> referenceNode = new Node<>();
 	public static int index = 0;
@@ -18,7 +18,7 @@ public class Linked_list<T> {
 	}
 
 	public static void setIndex(int index) {
-		Linked_list.index = index;
+		LinkedList.index = index;
 	}
 
 	// check if linked list is empty
@@ -31,7 +31,7 @@ public class Linked_list<T> {
 		if (isEmpty()) {
 
 			referenceNode.setNode(node);
-			node.setIndex(Linked_list.index);
+			node.setIndex(LinkedList.index);
 
 			return 0;
 
@@ -46,8 +46,8 @@ public class Linked_list<T> {
 
 
 			node.setNode(referenceNode.getNode());
-			Linked_list.index++;
-			node.setIndex(Linked_list.index);
+			LinkedList.index++;
+			node.setIndex(LinkedList.index);
 			referenceNode.setNode(node);
 			System.out.println(node + " successful insertion!");
 			System.out.println("reference: " + referenceNode.getNode());
@@ -64,7 +64,7 @@ public class Linked_list<T> {
 		if (isEmpty()) {
 
 			referenceNode.setNode(node);
-			node.setIndex(Linked_list.index);
+			node.setIndex(LinkedList.index);
 			System.out.println(node + " successful insertion!");
 			System.out.println("reference: " + referenceNode.getNode());
 			return 0;
@@ -80,8 +80,8 @@ public class Linked_list<T> {
 
 				node.setNode(null);
 				node.setIndex(0);
-				Linked_list.index++;
-				aux.setIndex(Linked_list.index);
+				LinkedList.index++;
+				aux.setIndex(LinkedList.index);
 
 				System.out.println(node + " successful insertion!");
 				System.out.println("reference: " + referenceNode.getNode());
@@ -98,8 +98,8 @@ public class Linked_list<T> {
 
 				node.setNode(aux.getNode());
 				node.setIndex(aux.getIndex());
-				Linked_list.index++;
-				aux.setIndex(Linked_list.index);
+				LinkedList.index++;
+				aux.setIndex(LinkedList.index);
 				aux.setNode(node);
 				System.out.println(node + " successful insertion!");
 				System.out.println("reference: " + referenceNode.getNode());
@@ -124,11 +124,11 @@ public class Linked_list<T> {
 						 */
 						node.setNode(aux.getNode());
 						node.setIndex(aux.getIndex());
-						Linked_list.index++;
+						LinkedList.index++;
 						/* the node that had the index previously points to the input */
 						aux.setNode(node);
 						aux.setIndex(index);
-						referenceNode.getNode().setIndex(++Linked_list.index);
+						referenceNode.getNode().setIndex(++LinkedList.index);
 
 						System.out.println(node + " successful insertion!");
 						System.out.println("reference: " + referenceNode.getNode());
@@ -146,7 +146,7 @@ public class Linked_list<T> {
 	}
 
 	public int size() {
-		int x = Linked_list.index;
+		int x = LinkedList.index;
 		return ++x;
 	}
 
